@@ -1,0 +1,83 @@
+<section class="bg-card border border-white/5 rounded-3xl p-6 shadow-card">
+  <header class="flex flex-wrap gap-4 items-center justify-between">
+    <div>
+      <p class="text-sm uppercase tracking-[0.35em] text-white/40">Gestión de Clientes</p>
+      <h2 class="text-2xl font-semibold">Administra la información de tus clientes</h2>
+    </div>
+    <div class="flex gap-3">
+      <button pButton type="button" label="Exportar JSON" class="!bg-white/5 !border-white/10 !text-white"></button>
+      <button pButton type="button" label="Nuevo Cliente" class="!bg-brand !border-none !text-white"></button>
+    </div>
+  </header>
+
+  <form [formGroup]="clientForm" class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+    <label class="flex flex-col gap-2 text-sm">
+      <span class="text-white/60">Tipo de registro</span>
+      <p-dropdown
+        formControlName="registerType"
+        [options]="registerTypes()"
+        optionLabel="label"
+        optionValue="value"
+        class="w-full"
+        inputId="registerType"
+      ></p-dropdown>
+    </label>
+
+    <label class="flex flex-col gap-2 text-sm">
+      <span class="text-white/60">Nombre Comercial</span>
+      <input pInputText formControlName="tradeName" placeholder="Ej: Comercial del Norte" />
+    </label>
+
+    <label class="flex flex-col gap-2 text-sm">
+      <span class="text-white/60">Razón Social</span>
+      <input pInputText formControlName="businessName" placeholder="Ej: Comercial del Norte S.A." />
+    </label>
+
+    <label class="flex flex-col gap-2 text-sm">
+      <span class="text-white/60">CUIT</span>
+      <p-inputMask formControlName="taxId" mask="99-99999999-9" placeholder="XX-XXXXXXXX-X"></p-inputMask>
+    </label>
+
+    <label class="flex flex-col gap-2 text-sm">
+      <span class="text-white/60">Email</span>
+      <input pInputText formControlName="email" placeholder="cliente@ejemplo.com" type="email" />
+    </label>
+
+    <label class="flex flex-col gap-2 text-sm">
+      <span class="text-white/60">Teléfono</span>
+      <p-inputMask formControlName="phone" mask="(999) 9999999" placeholder="(342) 1234567"></p-inputMask>
+    </label>
+
+    <label class="flex flex-col gap-2 text-sm">
+      <span class="text-white/60">Dirección</span>
+      <input pInputText formControlName="address" placeholder="Calle y número" />
+    </label>
+
+    <label class="flex flex-col gap-2 text-sm">
+      <span class="text-white/60">Localidad</span>
+      <input pInputText formControlName="city" placeholder="Santa Fe" />
+    </label>
+
+    <label class="flex flex-col gap-2 text-sm md:col-span-2">
+      <span class="text-white/60">Provincia</span>
+      <p-dropdown
+        formControlName="province"
+        [options]="provinces()"
+        optionLabel="label"
+        optionValue="value"
+        class="w-full"
+        inputId="province"
+      ></p-dropdown>
+    </label>
+  </form>
+
+  <footer class="mt-8 flex flex-wrap gap-4 items-center justify-between">
+    <div class="text-sm text-white/60">
+      <p>{{ formMessage() }}</p>
+    </div>
+    <div class="flex gap-3">
+      <button type="button" pButton label="Cancelar" class="!bg-white/5 !border-white/10 !text-white" (click)="resetForm()"></button>
+      <button type="button" pButton label="Guardar Cliente" class="!bg-brand !border-none !text-white" (click)="saveClient()"></button>
+    </div>
+  </footer>
+</section>
