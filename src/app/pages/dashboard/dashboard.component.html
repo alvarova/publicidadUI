@@ -1,0 +1,180 @@
+<div class="p-6 space-y-6 relative">
+  <!-- Loading Overlay -->
+  @if (loading) {
+    <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div class="bg-white rounded-lg p-6 flex flex-col items-center gap-4">
+        <p-progressSpinner styleClass="w-12 h-12"></p-progressSpinner>
+        <p class="text-gray-700 font-medium">Loading data...</p>
+      </div>
+    </div>
+  }
+
+  <!-- Stats Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+    <p-card styleClass="shadow-sm">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-gray-500 text-sm">Total Sales</p>
+          <h3 class="text-2xl font-bold text-gray-800 mt-1">$24,589</h3>
+          <p class="text-green-600 text-sm mt-2">
+            <i class="pi pi-arrow-up"></i> 12% from last month
+          </p>
+        </div>
+        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+          <i class="pi pi-shopping-cart text-blue-600 text-xl"></i>
+        </div>
+      </div>
+    </p-card>
+
+    <p-card styleClass="shadow-sm">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-gray-500 text-sm">New Customers</p>
+          <h3 class="text-2xl font-bold text-gray-800 mt-1">1,245</h3>
+          <p class="text-green-600 text-sm mt-2">
+            <i class="pi pi-arrow-up"></i> 8% from last month
+          </p>
+        </div>
+        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+          <i class="pi pi-users text-green-600 text-xl"></i>
+        </div>
+      </div>
+    </p-card>
+
+    <p-card styleClass="shadow-sm">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-gray-500 text-sm">Total Orders</p>
+          <h3 class="text-2xl font-bold text-gray-800 mt-1">892</h3>
+          <p class="text-red-600 text-sm mt-2">
+            <i class="pi pi-arrow-down"></i> 3% from last month
+          </p>
+        </div>
+        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+          <i class="pi pi-box text-purple-600 text-xl"></i>
+        </div>
+      </div>
+    </p-card>
+
+    <p-card styleClass="shadow-sm">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-gray-500 text-sm">Revenue</p>
+          <h3 class="text-2xl font-bold text-gray-800 mt-1">$89,432</h3>
+          <p class="text-green-600 text-sm mt-2">
+            <i class="pi pi-arrow-up"></i> 15% from last month
+          </p>
+        </div>
+        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+          <i class="pi pi-dollar text-orange-600 text-xl"></i>
+        </div>
+      </div>
+    </p-card>
+  </div>
+
+  <!-- Toast Examples -->
+  <p-card styleClass="shadow-sm mb-6">
+    <ng-template pTemplate="header">
+      <div class="px-6 py-4 border-b">
+        <h3 class="text-lg font-semibold">Toast Notifications & Loading States</h3>
+      </div>
+    </ng-template>
+    <div class="flex gap-4 flex-wrap">
+      <p-button 
+        label="Success Toast" 
+        icon="pi pi-check" 
+        (onClick)="showSuccess()"
+        severity="success"></p-button>
+      <p-button 
+        label="Error Toast" 
+        icon="pi pi-times" 
+        (onClick)="showError()"
+        severity="danger"></p-button>
+      <p-button 
+        label="Info Toast" 
+        icon="pi pi-info-circle" 
+        (onClick)="showInfo()"
+        severity="info"></p-button>
+      <p-button 
+        label="Simulate Loading" 
+        icon="pi pi-spinner" 
+        (onClick)="simulateLoading()"
+        [loading]="loading"></p-button>
+    </div>
+  </p-card>
+
+  <!-- Charts -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+    <p-card styleClass="shadow-sm">
+      <ng-template pTemplate="header">
+        <div class="px-6 py-4 border-b">
+          <h3 class="text-lg font-semibold">Sales & Revenue Trend</h3>
+        </div>
+      </ng-template>
+      <apx-chart
+        [series]="chartOptions.series!"
+        [chart]="chartOptions.chart!"
+        [dataLabels]="chartOptions.dataLabels!"
+        [stroke]="chartOptions.stroke!"
+        [xaxis]="chartOptions.xaxis!"
+        [yaxis]="chartOptions.yaxis!"
+        [fill]="chartOptions.fill!"
+        [tooltip]="chartOptions.tooltip!"
+      ></apx-chart>
+    </p-card>
+
+    <p-card styleClass="shadow-sm">
+      <ng-template pTemplate="header">
+        <div class="px-6 py-4 border-b">
+          <h3 class="text-lg font-semibold">Category Distribution</h3>
+        </div>
+      </ng-template>
+      <apx-chart
+        [series]="pieChartOptions.series!"
+        [chart]="pieChartOptions.chart!"
+        [dataLabels]="pieChartOptions.dataLabels!"
+        [fill]="pieChartOptions.fill!"
+      ></apx-chart>
+    </p-card>
+  </div>
+
+  <!-- Products Table -->
+  <p-card styleClass="shadow-sm">
+    <ng-template pTemplate="header">
+      <div class="px-6 py-4 border-b">
+        <h3 class="text-lg font-semibold">Products Inventory</h3>
+      </div>
+    </ng-template>
+    <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product>
+        <tr>
+          <td>{{ product.id }}</td>
+          <td class="font-medium">{{ product.name }}</td>
+          <td>{{ product.category }}</td>
+          <td class="font-semibold">${{ product.price }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>
+            <p-tag [value]="product.status" [severity]="getSeverity(product.status)"></p-tag>
+          </td>
+          <td>
+            <div class="flex gap-2">
+              <p-button icon="pi pi-pencil" [rounded]="true" [text]="true" severity="info"></p-button>
+              <p-button icon="pi pi-trash" [rounded]="true" [text]="true" severity="danger"></p-button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-card>
+</div>

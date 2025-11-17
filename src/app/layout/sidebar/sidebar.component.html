@@ -1,0 +1,21 @@
+<aside class="fixed left-0 top-0 h-screen w-64 bg-white border-r border-gray-200 shadow-sm overflow-y-auto">
+  <div class="p-6">
+    <h1 class="text-2xl font-bold text-primary-600">PublicidadUI</h1>
+    <p class="text-sm text-gray-500 mt-1">Angular 20 Starter</p>
+  </div>
+  
+  <nav class="px-4 pb-4">
+    <ul class="space-y-2">
+      @for (item of menuItems; track item.route) {
+        <li>
+          <a [routerLink]="item.route" 
+             routerLinkActive="bg-primary-50 text-primary-600"
+             class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+            <i [class]="item.icon"></i>
+            <span class="font-medium">{{ item.label }}</span>
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+</aside>

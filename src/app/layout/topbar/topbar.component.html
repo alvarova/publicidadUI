@@ -1,0 +1,35 @@
+<header class="fixed top-0 right-0 left-64 h-16 bg-white border-b border-gray-200 shadow-sm z-10">
+  <div class="flex items-center justify-between h-full px-6">
+    <div class="flex items-center gap-4">
+      <h2 class="text-xl font-semibold text-gray-800">Dashboard</h2>
+    </div>
+    
+    <div class="flex items-center gap-4">
+      <button class="p-2 rounded-lg hover:bg-gray-100 transition-colors">
+        <i class="pi pi-bell text-gray-600"></i>
+      </button>
+      
+      <button class="p-2 rounded-lg hover:bg-gray-100 transition-colors">
+        <i class="pi pi-cog text-gray-600"></i>
+      </button>
+      
+      <div class="relative">
+        <button (click)="toggleUserMenu()" 
+                class="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100 transition-colors">
+          <div class="w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center">
+            <i class="pi pi-user text-white text-sm"></i>
+          </div>
+        </button>
+        
+        @if (userMenuOpen) {
+          <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2">
+            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Profile</a>
+            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Settings</a>
+            <hr class="my-2">
+            <a href="#" class="block px-4 py-2 text-red-600 hover:bg-gray-50">Logout</a>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</header>
