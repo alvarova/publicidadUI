@@ -13,7 +13,6 @@ Modern Angular 20.x starter kit with PrimeNG 20.2.0, Tailwind CSS v3, and essent
 
 ### UI Components & Libraries
 - **ng-apexcharts** - Beautiful interactive charts
-- **ng-block-ui** - Loading states and block UI functionality
 - **ngx-sonner** - Modern toast notifications
 - **PrimeIcons** - Icon library
 - **PrimeFlex** - Utility CSS framework
@@ -160,7 +159,6 @@ Update CSS variables in `src/styles.css`:
 - [Tailwind CSS](https://tailwindcss.com)
 - [ApexCharts](https://apexcharts.com)
 - [ngx-sonner](https://github.com/tutkli/ngx-sonner)
-- [ng-block-ui](https://github.com/kuuurt13/ng-block-ui)
 
 ## License
 

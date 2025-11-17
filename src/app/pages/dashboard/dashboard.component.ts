@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgApexchartsModule, ChartComponent, ApexChart, ApexAxisChartSeries, ApexXAxis, ApexDataLabels, ApexStroke, ApexYAxis, ApexTitleSubtitle, ApexFill, ApexTooltip } from 'ng-apexcharts';
-import { BlockUIModule } from 'ng-block-ui';
 import { toast } from 'ngx-sonner';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { TagModule } from 'primeng/tag';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -35,11 +35,11 @@ interface Product {
   imports: [
     CommonModule,
     NgApexchartsModule,
-    BlockUIModule,
     TableModule,
     ButtonModule,
     CardModule,
-    TagModule
+    TagModule,
+    ProgressSpinnerModule
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
