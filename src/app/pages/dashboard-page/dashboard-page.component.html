@@ -1,0 +1,50 @@
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+  @for (module of modules(); track module.route) {
+    <article class="bg-card border border-white/5 rounded-3xl p-6 flex flex-col gap-4 shadow-card">
+      <div class="flex items-start justify-between">
+        <div>
+          <p class="text-sm uppercase tracking-[0.35em] text-white/40">Módulo</p>
+          <h2 class="text-xl font-semibold text-white">{{ module.title }}</h2>
+          <p class="text-white/60 text-sm mt-1">{{ module.description }}</p>
+        </div>
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br {{ module.tone }} flex items-center justify-center text-brand">
+          <i class="pi" [ngClass]="module.icon"></i>
+        </div>
+      </div>
+      <a
+        [routerLink]="module.route"
+        pButton
+        label="Abrir módulo"
+        class="!bg-brand hover:!bg-brand-dark !text-white !border-none w-fit"
+      ></a>
+    </article>
+  }
+</div>
+
+<section class="mt-10 bg-card border border-white/5 rounded-3xl p-6">
+  <header class="flex items-center justify-between">
+    <div>
+      <p class="text-sm uppercase tracking-[0.35em] text-white/40">Resumen del día</p>
+      <h3 class="text-xl font-semibold">Seguimiento de órdenes activas y próximas a vencer</h3>
+    </div>
+    <span class="text-xs text-white/60">Datos generados en tiempo real</span>
+  </header>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+    <div class="bg-black/20 rounded-3xl p-5 border border-white/5">
+      <p class="text-sm text-white/60">Órdenes activas hoy</p>
+      <div class="flex items-end gap-3 mt-3">
+        <span class="text-5xl font-bold">{{ todaySummary().active }}</span>
+        <span class="text-xs uppercase tracking-wider text-white/50">0 avisos</span>
+      </div>
+      <p class="text-white/50 text-sm mt-4">{{ todaySummary().activeMessage }}</p>
+    </div>
+    <div class="bg-black/20 rounded-3xl p-5 border border-white/5">
+      <p class="text-sm text-white/60">Órdenes por vencer</p>
+      <div class="flex items-end gap-3 mt-3">
+        <span class="text-5xl font-bold text-accent">{{ todaySummary().due }}</span>
+        <span class="text-xs uppercase tracking-wider text-accent/70">{{ dueLabel() }}</span>
+      </div>
+      <p class="text-white/50 text-sm mt-4">{{ todaySummary().dueMessage }}</p>
+    </div>
+  </div>
+</section>

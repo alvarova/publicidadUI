@@ -1,0 +1,80 @@
+<section class="bg-card border border-white/5 rounded-3xl p-6 shadow-card">
+  <header class="flex flex-wrap gap-4 items-center justify-between">
+    <div>
+      <p class="text-sm uppercase tracking-[0.35em] text-white/40">Órdenes de Publicidad</p>
+      <h2 class="text-2xl font-semibold">Crea y administra órdenes de emisión</h2>
+    </div>
+    <div class="flex gap-3">
+      <button pButton type="button" label="Exportar JSON" class="!bg-white/5 !border-white/10 !text-white"></button>
+      <button pButton type="button" label="Nueva Orden" class="!bg-brand !border-none !text-white"></button>
+    </div>
+  </header>
+
+  <form [formGroup]="orderForm" class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <label class="flex flex-col gap-2 text-sm">
+      <span class="text-white/60">Cliente</span>
+      <input pInputText formControlName="client" placeholder="CL1001 - Comercial del Norte" />
+    </label>
+    <label class="flex flex-col gap-2 text-sm">
+      <span class="text-white/60">Anunciante</span>
+      <input pInputText formControlName="announcer" placeholder="Nombre del anunciante" />
+    </label>
+    <label class="flex flex-col gap-2 text-sm">
+      <span class="text-white/60">Productor</span>
+      <input pInputText formControlName="producer" placeholder="Nombre del productor" />
+    </label>
+    <label class="flex flex-col gap-2 text-sm">
+      <span class="text-white/60">AM / Frecuencia</span>
+      <p-dropdown formControlName="frequency" [options]="frequencies()" optionLabel="label" optionValue="value"></p-dropdown>
+    </label>
+    <label class="flex flex-col gap-2 text-sm">
+      <span class="text-white/60">Esqueleto</span>
+      <p-dropdown formControlName="skeleton" [options]="skeletons()" optionLabel="label" optionValue="value"></p-dropdown>
+    </label>
+    <label class="flex flex-col gap-2 text-sm">
+      <span class="text-white/60">Tipo de Orden</span>
+      <p-dropdown formControlName="orderType" [options]="orderTypes()" optionLabel="label" optionValue="value"></p-dropdown>
+    </label>
+    <label class="flex flex-col gap-2 text-sm">
+      <span class="text-white/60">Fecha Desde</span>
+      <p-calendar formControlName="dateFrom" dateFormat="dd/mm/yy" inputId="dateFrom"></p-calendar>
+    </label>
+    <label class="flex flex-col gap-2 text-sm">
+      <span class="text-white/60">Fecha Hasta</span>
+      <p-calendar formControlName="dateTo" dateFormat="dd/mm/yy" inputId="dateTo"></p-calendar>
+    </label>
+  </form>
+
+  <section class="mt-10">
+    <p class="text-sm uppercase tracking-[0.35em] text-white/40">Tiempos de emisión</p>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+      <label class="flex flex-col gap-2 text-sm">
+        <span class="text-white/60">Esquema</span>
+        <p-dropdown formControlName="band" [options]="bands()" optionLabel="label" optionValue="value"></p-dropdown>
+      </label>
+      <div class="grid grid-cols-2 gap-4">
+        <label class="flex flex-col gap-2 text-sm">
+          <span class="text-white/60">Hora Desde</span>
+          <input pInputText formControlName="startHour" placeholder="08:00" />
+        </label>
+        <label class="flex flex-col gap-2 text-sm">
+          <span class="text-white/60">Hora Hasta</span>
+          <input pInputText formControlName="endHour" placeholder="09:00" />
+        </label>
+      </div>
+      <label class="flex flex-col gap-2 text-sm">
+        <span class="text-white/60">Duración Material (seg)</span>
+        <p-dropdown formControlName="material" [options]="materials()" optionLabel="label" optionValue="value"></p-dropdown>
+      </label>
+      <label class="flex flex-col gap-2 text-sm">
+        <span class="text-white/60">Avisos</span>
+        <input pInputText formControlName="notes" placeholder="0 avisos" />
+      </label>
+    </div>
+  </section>
+
+  <footer class="mt-10 flex items-center justify-end gap-3">
+    <button pButton type="button" label="Cancelar" class="!bg-white/5 !border-white/10 !text-white"></button>
+    <button pButton type="button" label="Crear Orden" class="!bg-brand !border-none !text-white" (click)="createOrder()"></button>
+  </footer>
+</section>
