@@ -1,49 +1,49 @@
-<section class="bg-card border border-white/5 rounded-3xl p-6 shadow-card">
+<section class="bg-card border border-[#E4E9E4] rounded-2xl p-6 shadow-card">
   <header class="flex flex-wrap gap-4 items-center justify-between">
     <div>
-      <p class="text-sm uppercase tracking-[0.35em] text-white/40">Programación diaria</p>
-      <h2 class="text-2xl font-semibold">Radio emisión de publicidad</h2>
-      <p class="text-white/50 text-sm">lunes, 17 de noviembre de 2025</p>
+      <p class="text-xs uppercase tracking-[0.35em] text-muted">Programación diaria</p>
+      <h2 class="text-2xl font-semibold text-ink">Radio emisión de publicidad</h2>
+      <p class="text-muted text-sm">lunes, 17 de noviembre de 2025</p>
     </div>
     <div class="flex gap-3 items-center">
-      <span class="text-sm text-white/60">08:21:12 p. m.</span>
-      <button pButton type="button" label="Nueva tanda" class="!bg-brand !border-none !text-white"></button>
+      <span class="text-sm text-muted">08:21:12 p. m.</span>
+      <button pButton type="button" label="Nueva tanda" class="!bg-brand !border-none !text-white !rounded"></button>
       <p-menu [model]="menuItems()" popup></p-menu>
-      <button pButton type="button" class="!bg-white/5 !border-white/10 !text-white" (click)="menu?.toggle($event)">
+      <button pButton type="button" class="!bg-white !border !border-[#D9E2DA] !text-muted !rounded" (click)="menu?.toggle($event)">
         <i class="pi pi-ellipsis-v"></i>
       </button>
     </div>
   </header>
 
   <div class="flex flex-wrap gap-3 mt-6 text-xs">
-    <span class="px-4 py-2 rounded-full bg-white/10 text-white">Grilla manual</span>
-    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Vista calendario</span>
+    <span class="px-4 py-2 rounded-full bg-brand/10 text-brand text-[11px] font-semibold">Grilla manual</span>
+    <span class="px-4 py-2 rounded-full bg-white text-muted border border-[#D9E2DA] text-[11px]">Vista calendario</span>
   </div>
 
   <div class="mt-8 space-y-6">
     @for (block of blocks(); track block.hour) {
-      <article class="bg-black/20 border border-white/5 rounded-3xl p-5">
+      <article class="bg-white border border-[#E4E9E4] rounded-2xl p-5">
         <header class="flex flex-wrap gap-4 items-center justify-between">
           <div>
-            <p class="text-3xl font-bold tracking-tight">{{ block.hour }}</p>
-            <h3 class="text-xl font-semibold">{{ block.show }}</h3>
-            <p class="text-white/60 text-sm">{{ block.description }}</p>
+            <p class="text-3xl font-bold tracking-tight text-ink">{{ block.hour }}</p>
+            <h3 class="text-xl font-semibold text-ink">{{ block.show }}</h3>
+            <p class="text-muted text-sm">{{ block.description }}</p>
           </div>
           <div class="text-right">
-            <p class="text-sm text-white/60">Duración {{ block.duration }}</p>
-            <p class="text-sm text-white">Total tanda {{ block.total }}</p>
+            <p class="text-sm text-muted">Duración {{ block.duration }}</p>
+            <p class="text-sm text-ink font-semibold">Total tanda {{ block.total }}</p>
           </div>
         </header>
         <div class="mt-6 space-y-4">
           @for (item of block.items; track item.title) {
-            <div class="bg-card rounded-2xl border border-white/5 px-4 py-3 flex flex-wrap gap-3 items-center justify-between">
+            <div class="bg-card rounded-xl border border-[#D9E2DA] px-4 py-3 flex flex-wrap gap-3 items-center justify-between">
               <div>
-                <p class="text-xs uppercase tracking-[0.3em] text-white/40">{{ item.type }}</p>
-                <p class="text-white font-semibold">{{ item.title }}</p>
+                <p class="text-[11px] uppercase tracking-[0.3em] text-muted">{{ item.type }}</p>
+                <p class="text-ink font-semibold">{{ item.title }}</p>
               </div>
               <div class="flex items-center gap-3">
-                <span class="px-3 py-1 rounded-full text-xs border border-white/10">{{ item.tag }}</span>
-                <span class="text-sm text-white/70">{{ item.duration }}</span>
+                <span class="px-3 py-1 rounded-full text-xs border border-[#D9E2DA] text-muted">{{ item.tag }}</span>
+                <span class="text-sm text-muted">{{ item.duration }}</span>
               </div>
             </div>
           }

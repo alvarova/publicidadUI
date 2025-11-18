@@ -1,34 +1,42 @@
-<div class="min-h-screen bg-surface flex text-white">
-  <aside class="w-20 bg-card border-r border-white/5 flex flex-col items-center py-6 gap-6">
-    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand to-brand-dark flex items-center justify-center font-black text-xl">
-      LT
+<div class="min-h-screen bg-surface flex text-ink">
+  <aside class="hidden md:flex w-64 bg-card border-r border-[#D9E2DA] flex-col px-6 py-8 gap-8">
+    <div class="flex items-center gap-3">
+      <div class="w-14 h-14 rounded-xl bg-brand flex items-center justify-center text-white font-black text-xl">LT10</div>
+      <div>
+        <p class="text-xs uppercase tracking-[0.3em] text-muted">Gest-ON-AIR</p>
+        <p class="font-semibold text-ink">Panel Integral</p>
+      </div>
     </div>
-    <nav class="flex flex-col gap-4 items-center w-full">
+    <nav class="flex flex-col gap-2">
       @for (item of navItems(); track item.route) {
         <a
           [routerLink]="item.route"
-          routerLinkActive="bg-white/10 text-brand"
-          class="w-14 h-14 flex flex-col gap-1 items-center justify-center rounded-2xl text-xs text-white/70 transition hover:text-white hover:bg-white/5"
+          routerLinkActive="!bg-brand/10 !text-brand"
+          class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted transition hover:text-brand hover:bg-brand/5"
           [routerLinkActiveOptions]="{ exact: item.route === '' }"
         >
-          <i class="pi" [ngClass]="item.icon"></i>
-          <span class="text-[10px] text-center leading-tight">{{ item.label }}</span>
+          <i class="pi text-base" [ngClass]="item.icon"></i>
+          <span>{{ item.label }}</span>
         </a>
       }
     </nav>
+    <div class="mt-auto text-xs text-muted">
+      Independencia · Transparencia · Comunidad
+    </div>
   </aside>
   <section class="flex-1 flex flex-col">
-    <header class="border-b border-white/5 px-8 py-6 flex flex-wrap gap-4 items-center justify-between">
+    <header class="bg-card border-b border-[#D9E2DA] px-6 lg:px-10 py-6 flex flex-wrap gap-4 items-center justify-between">
       <div>
-        <p class="text-sm uppercase tracking-[0.35em] text-white/50">Gest-ON-AIR</p>
-        <h1 class="text-2xl font-semibold text-white">Sistema de Gestión de Publicidad</h1>
+        <p class="text-xs uppercase tracking-[0.35em] text-muted"># Contexto para IA: Diseño LT10</p>
+        <h1 class="text-2xl font-semibold text-ink">Sistema de Gestión de Publicidad</h1>
+        <p class="text-sm text-muted">Inspirado en la estética LT10 · UNL</p>
       </div>
       <div class="text-right">
-        <p class="text-sm font-semibold text-white">{{ user().name }}</p>
-        <p class="text-xs text-white/60">{{ user().role }}</p>
+        <p class="text-sm font-semibold text-ink">{{ user().name }}</p>
+        <p class="text-xs text-muted">{{ user().role }}</p>
       </div>
     </header>
-    <main class="flex-1 overflow-y-auto px-6 pb-10 pt-8">
+    <main class="flex-1 overflow-y-auto px-4 lg:px-10 pb-12 pt-8">
       <router-outlet></router-outlet>
     </main>
   </section>
