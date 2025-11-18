@@ -17,10 +17,11 @@ interface NavItem {
 })
 export class AppComponent {
   readonly navItems = signal<NavItem[]>([
-    { icon: 'pi pi-broadcast-tower', label: 'Programación diaria', route: '' },
+    { icon: 'pi pi-home', label: 'Inicio', route: '' },
+    { icon: 'pi pi-calendar', label: 'Programación', route: '/programacion' },
+    { icon: 'pi pi-box', label: 'Materiales', route: '/materiales' },
     { icon: 'pi pi-users', label: 'Clientes', route: '/clientes' },
-    { icon: 'pi pi-briefcase', label: 'Órdenes', route: '/ordenes' },
-    { icon: 'pi pi-calendar', label: 'Programación', route: '/programacion' }
+    { icon: 'pi pi-briefcase', label: 'Órdenes', route: '/ordenes' }
   ]);
 
   readonly user = signal({

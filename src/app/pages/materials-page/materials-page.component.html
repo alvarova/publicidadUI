@@ -1,0 +1,78 @@
+<section class="bg-card border border-[#E4E9E4] rounded-2xl p-6 shadow-card">
+  <header class="flex items-center justify-between mb-4">
+    <div>
+      <p class="text-xs uppercase tracking-[0.35em] text-muted">Gestión de Materiales</p>
+      <h2 class="text-xl font-semibold text-ink">Administra los materiales publicitarios</h2>
+    </div>
+    <div class="flex gap-3">
+      <button pButton type="button" label="Exportar JSON" class="!bg-white !text-muted !border !border-[#D9E2DA] !rounded" (click)="exportJson()"></button>
+      <button pButton type="button" label="Nuevo Material" class="!bg-brand !border-none !text-white !rounded" (click)="newMaterial()"></button>
+    </div>
+  </header>
+
+  <div *ngIf="showForm()" class="mt-6">
+    <div class="bg-card border border-[#E4E9E4] rounded-2xl p-6">
+      <h3 class="text-lg font-semibold mb-4">Nuevo Material Publicitario</h3>
+      <form [formGroup]="materialForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <label class="flex flex-col col-span-2">
+          <span class="text-sm text-muted">Nombre del Material *</span>
+          <input pInputText formControlName="title" placeholder="Ej: Aviso Comercial del Norte - Verano" />
+        </label>
+
+        <label class="flex flex-col">
+          <span class="text-sm text-muted">Cliente *</span>
+          <p-select formControlName="client" [options]="clients()" optionLabel="label" optionValue="value"></p-select>
+        </label>
+
+        <label class="flex flex-col">
+          <span class="text-sm text-muted">Tipo de Material *</span>
+          <p-select formControlName="type" [options]="types()" optionLabel="label" optionValue="value"></p-select>
+        </label>
+
+        <label class="flex flex-col">
+          <span class="text-sm text-muted">Duración (segundos) *</span>
+          <input pInputText formControlName="duration" />
+        </label>
+
+        <label class="flex flex-col col-span-2">
+          <span class="text-sm text-muted">Archivo</span>
+          <input pInputText formControlName="file" placeholder="Nombre del archivo o URL" />
+        </label>
+
+        <label class="flex flex-col col-span-2">
+          <span class="text-sm text-muted">Observaciones</span>
+          <input pInputText formControlName="notes" placeholder="Notas adicionales sobre el material" />
+        </label>
+
+        <div class="col-span-2 flex items-center justify-end gap-3 mt-2">
+          <button type="button" pButton label="Cancelar" class="!bg-white !border !border-[#D9E2DA] !text-muted !rounded" (click)="cancel()"></button>
+          <button type="button" pButton label="Guardar Material" class="!bg-accent !border-none !text-white !rounded" (click)="saveMaterial()"></button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <section class="mt-6">
+    <div class="bg-card border border-[#E4E9E4] rounded-2xl p-4">
+      <div class="flex items-center gap-3 mb-4">
+        <input pInputText placeholder="Buscar materiales por nombre, código o cliente..." class="flex-1" />
+      </div>
+
+      <div class="space-y-3">
+        @for (m of materials(); track m.code) {
+          <div class="p-4 rounded-lg border border-[#D9E2DA] flex items-center justify-between">
+            <div>
+              <p class="text-sm text-muted">{{ m.code }}</p>
+              <p class="font-semibold text-ink">{{ m.title }}</p>
+              <p class="text-sm text-muted">{{ m.client }} · {{ m.duration }}s</p>
+            </div>
+            <div class="flex gap-2">
+              <button pButton type="button" label="Editar" class="!bg-white !border !border-[#D9E2DA] !text-muted !rounded"></button>
+              <button pButton type="button" label="Eliminar" class="!bg-white !border !border-red-600 !text-red-600 !rounded"></button>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+</section>

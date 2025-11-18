@@ -25,11 +25,31 @@ textarea {
 
 .p-button {
   font-family: 'Montserrat', 'Arial', sans-serif;
-  border-radius: 0.25rem;
-  font-weight: 600;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  padding: 0.75rem 1rem; /* padding consistente */
+  line-height: 1;
+  /* efecto 'gloss' y sombra sutil para todos los botones */
+  background-image: linear-gradient(rgba(255,255,255,0.12), rgba(255,255,255,0.02));
+  box-shadow: 0 6px 18px rgba(14,30,37,0.08);
+  transition: transform 120ms ease, box-shadow 120ms ease;
 }
 
 .p-button.p-button-text,
 .p-button.p-button-outlined {
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+.p-button .pi {
+  margin-right: 0.5rem;
+}
+
+.rounded {
+  border-radius: 0.5rem !important;
+}
+
+/* Mejor contraste para botones secundarios */
+.p-button[ng-reflect-label="Abrir módulo"],
+.p-button[label="Abrir módulo"] {
+  padding: 0.75rem 1.25rem;
 }

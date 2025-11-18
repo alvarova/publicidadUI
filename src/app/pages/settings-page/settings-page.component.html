@@ -1,0 +1,49 @@
+<section class="bg-card border border-[#E4E9E4] rounded-2xl p-6 shadow-card max-w-2xl">
+  <header class="flex items-center justify-between mb-4">
+    <div>
+      <p class="text-xs uppercase tracking-[0.35em] text-muted">Configuración</p>
+      <h2 class="text-xl font-semibold text-ink">Ajustes generales</h2>
+    </div>
+  </header>
+
+  <div class="space-y-6">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="font-medium text-ink">Tema</p>
+        <p class="text-sm text-muted">Alternar entre tema claro y oscuro</p>
+      </div>
+      <div>
+        <button pButton type="button" class="!bg-white !border !border-[#D9E2DA] !text-muted !rounded" (click)="toggleTheme()">
+          {{ dark() ? 'Dark' : 'Light' }}
+        </button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <label class="flex flex-col">
+        <span class="text-sm text-muted">Zona horaria</span>
+        <select class="mt-2 p-2 border border-[#D9E2DA] rounded bg-white">
+          <option>America/Argentina/Buenos_Aires</option>
+          <option>UTC</option>
+        </select>
+      </label>
+      <label class="flex flex-col">
+        <span class="text-sm text-muted">Idioma</span>
+        <select class="mt-2 p-2 border border-[#D9E2DA] rounded bg-white">
+          <option>Español (es)</option>
+          <option>Inglés (en)</option>
+        </select>
+      </label>
+    </div>
+
+    <div>
+      <p class="text-sm text-muted">Preferencias</p>
+      <div class="mt-3 flex flex-col gap-2">
+        <label class="flex items-center gap-3">
+          <input type="checkbox" class="form-checkbox" />
+          <span class="text-sm">Habilitar notificaciones</span>
+        </label>
+      </div>
+    </div>
+  </div>
+</section>
