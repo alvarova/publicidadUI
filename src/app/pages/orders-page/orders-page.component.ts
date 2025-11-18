@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { DropdownModule } from 'primeng/dropdown';
+import { Select } from 'primeng/select';
 import { InputTextModule } from 'primeng/inputtext';
-import { CalendarModule } from 'primeng/calendar';
+import { DatePicker } from 'primeng/datepicker';
 import { ButtonModule } from 'primeng/button';
 
 interface Option {
@@ -14,7 +14,7 @@ interface Option {
 @Component({
   selector: 'app-orders-page',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, DropdownModule, InputTextModule, CalendarModule, ButtonModule],
+  imports: [CommonModule, ReactiveFormsModule, Select, InputTextModule, DatePicker, ButtonModule],
   templateUrl: './orders-page.component.html'
 })
 export class OrdersPageComponent {

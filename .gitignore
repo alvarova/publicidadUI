@@ -1,0 +1,35 @@
+node_modules
+.angular
+
+# Build output
+dist/
+out-tsc/
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# OS files
+.DS_Store
+
+# Coverage and temporary
+coverage/
+.cache/
+tmp/
+/.parcel-cache
+
+# Environment files
+.env
+.env.*
+
+# Misc
+/.sass-cache
+/.pnp
+/.pnp.js
+

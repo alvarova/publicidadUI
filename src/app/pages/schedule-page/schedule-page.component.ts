@@ -1,7 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
-import { MenuModule } from 'primeng/menu';
+import { Menu } from 'primeng/menu';
 import { MenuItem } from 'primeng/api';
 
 interface BlockMaterial {
@@ -23,10 +23,11 @@ interface ScheduleBlock {
 @Component({
   selector: 'app-schedule-page',
   standalone: true,
-  imports: [CommonModule, ButtonModule, MenuModule],
+  imports: [CommonModule, ButtonModule, Menu],
   templateUrl: './schedule-page.component.html'
 })
 export class SchedulePageComponent {
+  @ViewChild(Menu) menu?: Menu;
   readonly menuItems = signal<MenuItem[]>([
     { label: 'Exportar CSV', icon: 'pi pi-upload' },
     { label: 'Exportar Dinesat', icon: 'pi pi-share-alt' },

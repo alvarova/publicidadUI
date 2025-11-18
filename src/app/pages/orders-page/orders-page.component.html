@@ -25,23 +25,23 @@
     </label>
     <label class="flex flex-col gap-2 text-sm">
       <span class="text-white/60">AM / Frecuencia</span>
-      <p-dropdown formControlName="frequency" [options]="frequencies()" optionLabel="label" optionValue="value"></p-dropdown>
+  <p-select formControlName="frequency" [options]="frequencies()" optionLabel="label" optionValue="value"></p-select>
     </label>
     <label class="flex flex-col gap-2 text-sm">
       <span class="text-white/60">Esqueleto</span>
-      <p-dropdown formControlName="skeleton" [options]="skeletons()" optionLabel="label" optionValue="value"></p-dropdown>
+  <p-select formControlName="skeleton" [options]="skeletons()" optionLabel="label" optionValue="value"></p-select>
     </label>
     <label class="flex flex-col gap-2 text-sm">
       <span class="text-white/60">Tipo de Orden</span>
-      <p-dropdown formControlName="orderType" [options]="orderTypes()" optionLabel="label" optionValue="value"></p-dropdown>
+  <p-select formControlName="orderType" [options]="orderTypes()" optionLabel="label" optionValue="value"></p-select>
     </label>
     <label class="flex flex-col gap-2 text-sm">
       <span class="text-white/60">Fecha Desde</span>
-      <p-calendar formControlName="dateFrom" dateFormat="dd/mm/yy" inputId="dateFrom"></p-calendar>
+  <p-datepicker formControlName="dateFrom" dateFormat="dd/mm/yy" inputId="dateFrom"></p-datepicker>
     </label>
     <label class="flex flex-col gap-2 text-sm">
       <span class="text-white/60">Fecha Hasta</span>
-      <p-calendar formControlName="dateTo" dateFormat="dd/mm/yy" inputId="dateTo"></p-calendar>
+  <p-datepicker formControlName="dateTo" dateFormat="dd/mm/yy" inputId="dateTo"></p-datepicker>
     </label>
   </form>
 
@@ -50,7 +50,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
       <label class="flex flex-col gap-2 text-sm">
         <span class="text-white/60">Esquema</span>
-        <p-dropdown formControlName="band" [options]="bands()" optionLabel="label" optionValue="value"></p-dropdown>
+  <p-select formControlName="band" [options]="bands()" optionLabel="label" optionValue="value"></p-select>
       </label>
       <div class="grid grid-cols-2 gap-4">
         <label class="flex flex-col gap-2 text-sm">
@@ -64,7 +64,7 @@
       </div>
       <label class="flex flex-col gap-2 text-sm">
         <span class="text-white/60">Duración Material (seg)</span>
-        <p-dropdown formControlName="material" [options]="materials()" optionLabel="label" optionValue="value"></p-dropdown>
+  <p-select formControlName="material" [options]="materials()" optionLabel="label" optionValue="value"></p-select>
       </label>
       <label class="flex flex-col gap-2 text-sm">
         <span class="text-white/60">Avisos</span>
