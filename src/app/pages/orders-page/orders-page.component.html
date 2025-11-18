@@ -1,80 +1,80 @@
-<section class="bg-card border border-white/5 rounded-3xl p-6 shadow-card">
+<section class="bg-card border border-[#E4E9E4] rounded-2xl p-6 shadow-card">
   <header class="flex flex-wrap gap-4 items-center justify-between">
     <div>
-      <p class="text-sm uppercase tracking-[0.35em] text-white/40">Órdenes de Publicidad</p>
-      <h2 class="text-2xl font-semibold">Crea y administra órdenes de emisión</h2>
+      <p class="text-xs uppercase tracking-[0.35em] text-muted">Órdenes de Publicidad</p>
+      <h2 class="text-2xl font-semibold text-ink">Crea y administra órdenes de emisión</h2>
     </div>
     <div class="flex gap-3">
-      <button pButton type="button" label="Exportar JSON" class="!bg-white/5 !border-white/10 !text-white"></button>
-      <button pButton type="button" label="Nueva Orden" class="!bg-brand !border-none !text-white"></button>
+      <button pButton type="button" label="Exportar JSON" class="!bg-white !border !border-[#D9E2DA] !text-muted !rounded"></button>
+      <button pButton type="button" label="Nueva Orden" class="!bg-brand !border-none !text-white !rounded"></button>
     </div>
   </header>
 
   <form [formGroup]="orderForm" class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
-    <label class="flex flex-col gap-2 text-sm">
-      <span class="text-white/60">Cliente</span>
+    <label class="flex flex-col gap-2 text-sm text-ink">
+      <span class="text-muted">Cliente</span>
       <input pInputText formControlName="client" placeholder="CL1001 - Comercial del Norte" />
     </label>
-    <label class="flex flex-col gap-2 text-sm">
-      <span class="text-white/60">Anunciante</span>
+    <label class="flex flex-col gap-2 text-sm text-ink">
+      <span class="text-muted">Anunciante</span>
       <input pInputText formControlName="announcer" placeholder="Nombre del anunciante" />
     </label>
-    <label class="flex flex-col gap-2 text-sm">
-      <span class="text-white/60">Productor</span>
+    <label class="flex flex-col gap-2 text-sm text-ink">
+      <span class="text-muted">Productor</span>
       <input pInputText formControlName="producer" placeholder="Nombre del productor" />
     </label>
-    <label class="flex flex-col gap-2 text-sm">
-      <span class="text-white/60">AM / Frecuencia</span>
+    <label class="flex flex-col gap-2 text-sm text-ink">
+      <span class="text-muted">AM / Frecuencia</span>
   <p-select formControlName="frequency" [options]="frequencies()" optionLabel="label" optionValue="value"></p-select>
     </label>
-    <label class="flex flex-col gap-2 text-sm">
-      <span class="text-white/60">Esqueleto</span>
+    <label class="flex flex-col gap-2 text-sm text-ink">
+      <span class="text-muted">Esqueleto</span>
   <p-select formControlName="skeleton" [options]="skeletons()" optionLabel="label" optionValue="value"></p-select>
     </label>
-    <label class="flex flex-col gap-2 text-sm">
-      <span class="text-white/60">Tipo de Orden</span>
+    <label class="flex flex-col gap-2 text-sm text-ink">
+      <span class="text-muted">Tipo de Orden</span>
   <p-select formControlName="orderType" [options]="orderTypes()" optionLabel="label" optionValue="value"></p-select>
     </label>
-    <label class="flex flex-col gap-2 text-sm">
-      <span class="text-white/60">Fecha Desde</span>
+    <label class="flex flex-col gap-2 text-sm text-ink">
+      <span class="text-muted">Fecha Desde</span>
   <p-datepicker formControlName="dateFrom" dateFormat="dd/mm/yy" inputId="dateFrom"></p-datepicker>
     </label>
-    <label class="flex flex-col gap-2 text-sm">
-      <span class="text-white/60">Fecha Hasta</span>
+    <label class="flex flex-col gap-2 text-sm text-ink">
+      <span class="text-muted">Fecha Hasta</span>
   <p-datepicker formControlName="dateTo" dateFormat="dd/mm/yy" inputId="dateTo"></p-datepicker>
     </label>
   </form>
 
   <section class="mt-10">
-    <p class="text-sm uppercase tracking-[0.35em] text-white/40">Tiempos de emisión</p>
+    <p class="text-xs uppercase tracking-[0.35em] text-muted">Tiempos de emisión</p>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
-      <label class="flex flex-col gap-2 text-sm">
-        <span class="text-white/60">Esquema</span>
+      <label class="flex flex-col gap-2 text-sm text-ink">
+        <span class="text-muted">Esquema</span>
   <p-select formControlName="band" [options]="bands()" optionLabel="label" optionValue="value"></p-select>
       </label>
       <div class="grid grid-cols-2 gap-4">
-        <label class="flex flex-col gap-2 text-sm">
-          <span class="text-white/60">Hora Desde</span>
+        <label class="flex flex-col gap-2 text-sm text-ink">
+          <span class="text-muted">Hora Desde</span>
           <input pInputText formControlName="startHour" placeholder="08:00" />
         </label>
-        <label class="flex flex-col gap-2 text-sm">
-          <span class="text-white/60">Hora Hasta</span>
+        <label class="flex flex-col gap-2 text-sm text-ink">
+          <span class="text-muted">Hora Hasta</span>
           <input pInputText formControlName="endHour" placeholder="09:00" />
         </label>
       </div>
-      <label class="flex flex-col gap-2 text-sm">
-        <span class="text-white/60">Duración Material (seg)</span>
+      <label class="flex flex-col gap-2 text-sm text-ink">
+        <span class="text-muted">Duración Material (seg)</span>
   <p-select formControlName="material" [options]="materials()" optionLabel="label" optionValue="value"></p-select>
       </label>
-      <label class="flex flex-col gap-2 text-sm">
-        <span class="text-white/60">Avisos</span>
+      <label class="flex flex-col gap-2 text-sm text-ink">
+        <span class="text-muted">Avisos</span>
         <input pInputText formControlName="notes" placeholder="0 avisos" />
       </label>
     </div>
   </section>
 
   <footer class="mt-10 flex items-center justify-end gap-3">
-    <button pButton type="button" label="Cancelar" class="!bg-white/5 !border-white/10 !text-white"></button>
-    <button pButton type="button" label="Crear Orden" class="!bg-brand !border-none !text-white" (click)="createOrder()"></button>
+    <button pButton type="button" label="Cancelar" class="!bg-white !border !border-[#D9E2DA] !text-muted !rounded"></button>
+    <button pButton type="button" label="Crear Orden" class="!bg-brand !border-none !text-white !rounded" (click)="createOrder()"></button>
   </footer>
 </section>

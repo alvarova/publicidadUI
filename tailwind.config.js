@@ -4,17 +4,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: '#1A873A',
-        'brand-dark': '#0f6127',
-        accent: '#B8000B',
-        surface: '#070B0C',
-        card: '#12171A'
+        brand: '#00A94F',
+        'brand-dark': '#00813D',
+        accent: '#EF3E42',
+        surface: '#F4F7F5',
+        card: '#FFFFFF',
+        ink: '#1E1F24',
+        muted: '#5F6670'
       },
       fontFamily: {
         sans: ['"Montserrat"', 'Arial', 'sans-serif']
       },
       boxShadow: {
-        card: '0 25px 45px rgba(0,0,0,0.45)'
+        card: '0 25px 45px rgba(0, 46, 32, 0.08)'
       }
     }
   },

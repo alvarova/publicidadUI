@@ -20,32 +20,32 @@ interface ModuleCard {
 export class DashboardPageComponent {
   readonly modules = signal<ModuleCard[]>([
     {
-      title: 'Programación diaria',
-      description: 'Diseña la parrilla y valida reglas en tiempo real',
-      route: '/programacion',
-      icon: 'pi pi-broadcast-tower',
-      tone: 'from-brand/30 to-brand/5'
-    },
-    {
       title: 'Clientes',
       description: 'Gestiona la información institucional y comercial',
       route: '/clientes',
       icon: 'pi pi-users',
-      tone: 'from-orange-500/30 to-orange-500/5'
+      tone: 'from-brand/20 to-brand/0'
     },
     {
       title: 'Órdenes',
       description: 'Crea y administra órdenes de publicidad',
       route: '/ordenes',
-      icon: 'pi pi-briefcase',
-      tone: 'from-emerald-500/30 to-emerald-500/5'
+      icon: 'pi pi-clipboard',
+      tone: 'from-[#0088AA]/20 to-[#0088AA]/0'
     },
     {
       title: 'Materiales',
-      description: 'Administra materiales y tandas multimediales',
+      description: 'Administra materiales, jingles y assets multimedia',
       route: '/ordenes',
-      icon: 'pi pi-box',
-      tone: 'from-accent/30 to-accent/5'
+      icon: 'pi pi-cloud-upload',
+      tone: 'from-accent/20 to-accent/0'
+    },
+    {
+      title: 'Programación diaria',
+      description: 'Diseña la parrilla y valida reglas en tiempo real',
+      route: '/programacion',
+      icon: 'pi pi-calendar',
+      tone: 'from-ink/10 to-ink/0'
     }
   ]);
 

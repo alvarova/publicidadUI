@@ -6,22 +6,30 @@
 
 :root {
   font-family: 'Montserrat', 'Arial', sans-serif;
-  color: white;
-  background-color: #070B0C;
+  color: #1e1f24;
+  background-color: #f4f7f5;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #070B0C;
+  background-color: #f4f7f5;
+  color: #1e1f24;
 }
 
 input,
 select,
 textarea {
-  @apply bg-card border border-white/10 rounded-2xl text-sm text-white px-4 py-3 placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand/70;
+  @apply bg-white border border-[#D9E2DA] rounded text-sm text-[#1F2420] px-4 py-3 placeholder-[#86938A] focus:outline-none focus:ring-2 focus:ring-brand/60;
 }
 
 .p-button {
   font-family: 'Montserrat', 'Arial', sans-serif;
+  border-radius: 0.25rem;
+  font-weight: 600;
+}
+
+.p-button.p-button-text,
+.p-button.p-button-outlined {
+  border-radius: 0.25rem;
 }
